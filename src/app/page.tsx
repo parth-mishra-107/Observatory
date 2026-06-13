@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SolarSystemHero from "@/components/SolarSystemHero";
 
 const features = [
   {
@@ -30,6 +31,7 @@ const features = [
 export default function Home() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-16">
+      {/* HERO */}
       <section className="mb-20 text-center">
         <h1 className="mb-6 text-6xl font-bold">
           Observe the Universe
@@ -58,6 +60,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NEW SOLAR SYSTEM PREVIEW */}
+      <section className="mb-24">
+  <h2 className="mb-6 text-center text-4xl font-bold">
+    🪐 Interactive Solar System
+  </h2>
+
+  <p className="mb-8 text-center text-slate-400">
+    Drag to explore the Solar System. Hover planets
+    to learn more.
+  </p>
+
+  <div
+    className="
+      rounded-3xl
+      border border-blue-500/20
+      bg-black
+      shadow-2xl
+      shadow-blue-500/20
+      overflow-hidden
+    "
+  >
+    <SolarSystemHero />
+  </div>
+</section>
+
+      {/* FEATURE CARDS */}
       <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {features.map((feature) => (
           <Link

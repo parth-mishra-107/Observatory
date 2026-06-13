@@ -21,3 +21,15 @@ export async function getAsteroids() {
 
   return res.json();
 }
+
+export async function searchNASAImages(query: string) {
+  const res = await fetch(
+    `https://images-api.nasa.gov/search?q=${encodeURIComponent(query)}&media_type=image`
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to search NASA images");
+  }
+
+  return res.json();
+}
