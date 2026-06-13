@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020617;
+  --foreground: #f8fafc;
 }
 
 @theme inline {
@@ -12,18 +12,34 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
+  color: var(--foreground);
+
   background:
-    radial-gradient(circle at top, #172554 0%, #020617 40%);
-  color: white;
+    radial-gradient(
+      circle at top,
+      rgba(37, 99, 235, 0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      to bottom,
+      #020617 0%,
+      #020617 100%
+    );
+
+  overflow-x: hidden;
 }
+
+/* Moving Stars */
 
 .star {
   position: absolute;
@@ -31,6 +47,10 @@ body {
   background: white;
   border-radius: 9999px;
   opacity: 0.8;
+  box-shadow:
+    0 0 4px white,
+    0 0 8px white;
+
   animation: fall linear infinite;
 }
 
@@ -40,7 +60,11 @@ body {
     opacity: 0;
   }
 
-  20% {
+  15% {
+    opacity: 1;
+  }
+
+  85% {
     opacity: 1;
   }
 
@@ -48,4 +72,30 @@ body {
     transform: translateY(110vh);
     opacity: 0;
   }
+}
+
+/* Nice Scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Text Selection */
+
+::selection {
+  background: #2563eb;
+  color: white;
 }
