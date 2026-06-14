@@ -2,19 +2,54 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Ring, Stars } from "@react-three/drei";
+import { useTexture } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 
 function Sun() {
+  const sunTexture = useTexture("/textures/sun.jpg");
+
   return (
     <mesh>
       <sphereGeometry args={[1.6, 64, 64]} />
+
       <meshStandardMaterial
-        color="#FFD700"
-        emissive="#FFAA00"
-        emissiveIntensity={10}
+        map={sunTexture}
+        emissiveMap={sunTexture}
+        emissive="#ff8800"
+        emissiveIntensity={3}
+        toneMapped={false}
       />
     </mesh>
+  );
+}
+
+function AsteroidBelt() {
+  const asteroids = Array.from({ length: 300 }, (_, i) => {
+    const angle = Math.random() * Math.PI * 2;
+    const radius = 6.2 + Math.random() * 1.2;
+
+    return {
+      id: i,
+      x: Math.cos(angle) * radius,
+      z: Math.sin(angle) * radius,
+      y: (Math.random() - 0.5) * 0.3,
+      size: 0.02 + Math.random() * 0.04,
+    };
+  });
+
+  return (
+    <>
+      {asteroids.map((a) => (
+        <mesh
+          key={a.id}
+          position={[a.x, a.y, a.z]}
+        >
+          <sphereGeometry args={[a.size, 8, 8]} />
+          <meshStandardMaterial color="#777777" />
+        </mesh>
+      ))}
+    </>
   );
 }
 
@@ -35,13 +70,14 @@ function OrbitRing({ radius }: { radius: number }) {
 
 function SaturnRing() {
   return (
-    <mesh rotation={[Math.PI / 2, 0, 0]}>
-      <ringGeometry args={[0.95, 1.5, 64]} />
+    <mesh rotation={[Math.PI / 2.3, 0, 0]}>
+      <ringGeometry args={[0.9, 1.8, 128]} />
+
       <meshBasicMaterial
-        color="#d8c28f"
+        color="#ebc174"
         side={THREE.DoubleSide}
         transparent
-        opacity={0.9}
+        opacity={0.65}
       />
     </mesh>
   );
@@ -87,6 +123,7 @@ function Planet({
   distance,
   color,
   speed,
+  texturePath,
   onHover,
 }: {
   name: string;
@@ -94,10 +131,13 @@ function Planet({
   distance: number;
   color: string;
   speed: number;
+  texturePath: string;
   onHover: (planet: string | null) => void;
 }) {
   const ref = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
+
+  const texture = useTexture(texturePath);
 
   useFrame(({ clock }) => {
     if (!ref.current) return;
@@ -133,8 +173,13 @@ function Planet({
         onHover(null);
       }}
     >
-      <sphereGeometry args={[size, 32, 32]} />
-      <meshStandardMaterial color={color} />
+      <sphereGeometry args={[size, 64, 64]} />
+
+      <meshStandardMaterial
+        map={texture}
+        roughness={1}
+        metalness={0}
+      />
 
       {name === "Saturn" && <SaturnRing />}
     </mesh>
@@ -146,7 +191,7 @@ export default function SolarSystemHero() {
     useState<string | null>(null);
 
   return (
-<div className="relative h-[600px] w-full bg-black">      <Canvas camera={{ position: [0, 12, 28], fov: 60 }}>
+<div className="relative mx-auto h-[500px] max-w-7xl overflow-hidden rounded-3xl border border-slate-800 bg-black">      <Canvas camera={{ position: [0, 12, 28], fov: 60 }}>
         <Stars
           radius={200}
           depth={100}
@@ -156,19 +201,19 @@ export default function SolarSystemHero() {
           fade
         />
 
-        <ambientLight intensity={0.3} />
+        <ambientLight intensity={0.45} />
 
         <pointLight
-          position={[0, 0, 0]}
-          intensity={600}
-          color="#FFD700"
-        />
+  position={[0, 0, 0]}
+  intensity={1200}
+  color="#FFD700"
+/>
 
-        <pointLight
-          position={[0, 0, 0]}
-          intensity={400}
-          color="#FFAA00"
-        />
+<pointLight
+  position={[0, 0, 0]}
+  intensity={700}
+  color="#FF8C00"
+/>
 
         <Sun />
 
@@ -185,7 +230,8 @@ export default function SolarSystemHero() {
           name="Mercury"
           size={0.12}
           distance={2}
-          color="#eedf8c"
+          color="#918d77"
+          texturePath="/textures/mercury.jpg"
           speed={2.4}
   onHover={setSelectedPlanet}
         />
@@ -194,8 +240,9 @@ export default function SolarSystemHero() {
           name="Venus"
           size={0.22}
           distance={3}
-          color="#d9b38c"
+          color="#fdb369"
           speed={1.8}
+          texturePath="/textures/venus.jpg"
   onHover={setSelectedPlanet}
         />
 
@@ -205,23 +252,28 @@ export default function SolarSystemHero() {
           distance={4}
           color="#2994ff"
           speed={1.5}
+          texturePath="/textures/earth.jpg"
   onHover={setSelectedPlanet}
         />
 
         <Planet
           name="Mars"
           size={0.18}
+          texturePath="/textures/mars.jpg"
           distance={5}
           color="#f1532b"
           speed={1.2}
   onHover={setSelectedPlanet}
         />
 
+        <AsteroidBelt />
+
         <Planet
           name="Jupiter"
           size={0.8}
           distance={8}
-          color="#dbb952"
+          texturePath="/textures/jupiter.jpg"
+          color="#d18420"
           speed={0.6}
   onHover={setSelectedPlanet}
         />
@@ -230,6 +282,7 @@ export default function SolarSystemHero() {
           name="Saturn"
           size={0.7}
           distance={11}
+          texturePath="/textures/saturn.jpg"
           color="#c4a277"
           speed={0.45}
   onHover={setSelectedPlanet}
@@ -239,6 +292,7 @@ export default function SolarSystemHero() {
           name="Uranus"
           size={0.5}
           distance={14}
+          texturePath="/textures/uranus.jpg"
           color="#7fffd4"
           speed={0.3}
   onHover={setSelectedPlanet}
@@ -249,6 +303,7 @@ export default function SolarSystemHero() {
           size={0.48}
           distance={17}
           color="#4973f3"
+          texturePath="/textures/neptune.jpg"
           speed={0.2}
   onHover={setSelectedPlanet}
         />
@@ -259,6 +314,17 @@ export default function SolarSystemHero() {
           maxDistance={40}
         />
       </Canvas>
+      
+<div className="absolute left-10 top-10 max-w-md">
+  <h1 className="text-5xl font-bold text-white">
+    Solar System Explorer
+  </h1>
+
+  <p className="mt-3 text-slate-300">
+    Journey through our cosmic neighborhood.
+  </p>
+</div>
+      
       {selectedPlanet && (
   <div className="absolute left-4 top-4 z-50 max-w-xs rounded-xl border border-blue-500/30 bg-slate-900/90 p-4 backdrop-blur">
     <h3 className="mb-2 text-xl font-bold text-white">
