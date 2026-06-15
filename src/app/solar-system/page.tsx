@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import SolarSystemHero from "../../components/SolarSystemHero";
 import { planets } from "@/data/planets";
+import StarBackground from "@/components/StarBackground";
 
 export default function SolarSystemPage() {
   const [selectedPlanet, setSelectedPlanet] =
@@ -11,7 +12,10 @@ export default function SolarSystemPage() {
   const detailsRef = useRef<HTMLDivElement>(null);
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <>
+    <StarBackground />
+
+    <main className="relative z-10 min-h-screen bg-black/70 text-white">
       {/* Hero */}
       <SolarSystemHero />
 
@@ -242,5 +246,6 @@ export default function SolarSystemPage() {
         Journey Through Space • NASA Dashboard Project
       </section>
     </main>
+    </>
   );
 }

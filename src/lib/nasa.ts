@@ -33,3 +33,22 @@ export async function searchNASAImages(query: string) {
 
   return res.json();
 }
+
+export async function getMissionGallery(query: string) {
+  const res = await fetch(
+    `https://images-api.nasa.gov/search?q=${encodeURIComponent(
+      query
+    )}&media_type=image`
+  );
+
+  const data = await res.json();
+
+  return (
+    data.collection?.items
+      ?.slice(0, 12)
+      .map((item: any) => ({
+        image: item.links?.[0]?.href,
+        title: item.data?.[0]?.title,
+      })) ?? []
+  );
+}
