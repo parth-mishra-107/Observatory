@@ -41,6 +41,32 @@ export default function MissionsPage() {
           </Link>
         ))}
       </div>
+
+<section className="border-t border-slate-800 py-16">
+  <div className="mx-auto max-w-5xl text-center">
+
+    <h2 className="mb-4 text-3xl font-bold">
+      Expanding Human Knowledge
+    </h2>
+
+    <p className="mx-auto max-w-2xl text-slate-400">
+      From Apollo's first steps on the Moon to Voyager's
+      journey beyond the Solar System, NASA missions have
+      continually pushed the boundaries of exploration.
+    </p>
+
+    <div className="my-10 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
+
+    <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+      <span>🚀 15 Featured Missions</span>
+      <span>🌌 Deep Space Exploration</span>
+      <span>🛰️ Robotic Discovery</span>
+      <span>👨‍🚀 Human Spaceflight</span>
+    </div>
+
+  </div>
+</section>
+
     </main>
   );
 }

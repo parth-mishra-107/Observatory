@@ -219,6 +219,32 @@ export default async function AsteroidsPage() {
           technologies for the future.
         </p>
       </section>
+
+<section className="border-t border-slate-800 py-16">
+  <div className="mx-auto max-w-5xl text-center">
+
+    <h2 className="mb-4 text-3xl font-bold">
+      Guardians of the Solar System
+    </h2>
+
+    <p className="mx-auto max-w-2xl text-slate-400">
+      Asteroids are remnants of the Solar System's formation.
+      By tracking near-Earth objects, scientists improve our
+      understanding of planetary history and planetary defense.
+    </p>
+
+    <div className="my-10 h-px bg-gradient-to-r from-transparent via-yellow-500/40 to-transparent" />
+
+    <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+      <span>☄️ Millions of Asteroids</span>
+      <span>🛡️ Planetary Defense</span>
+      <span>🔭 Near-Earth Tracking</span>
+      <span>🌍 Impact Monitoring</span>
+    </div>
+
+  </div>
+</section>
+
     </main>
   );
 }

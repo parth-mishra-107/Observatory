@@ -4,11 +4,11 @@ import { getApod } from "@/lib/nasa";
 
 const features = [
   {
-    title: "Astronomy Picture",
-    label: "APOD",
+    title: "NASA's Missons",
+    label: "MISSIONS",
     description:
-      "Discover NASA's Astronomy Picture of the Day with detailed explanations and stunning imagery.",
-    href: "/apod",
+      "Explore NASA's groundbreaking missions, uncovering the mysteries of space through detailed insights, scientific discoveries, and breathtaking imagery.",
+    href: "/missions",
   },
   {
     title: "Mars Explorer",
@@ -19,14 +19,14 @@ const features = [
   },
   {
     title: "Near-Earth Objects",
-    label: "NEO",
+    label: "Asteroids",
     description:
       "Track asteroids and monitor objects passing close to Earth.",
     href: "/asteroids",
   },
   {
     title: "Solar System",
-    label: "3D",
+    label: "Experience",
     description:
       "Interact with planets and moons through an immersive visualization.",
     href: "/solar-system",
@@ -290,22 +290,57 @@ export default async function Home() {
     ))}
   </div>
 </section>
+{/* Homepage Footer */}
+<section className="border-t border-slate-800 py-16">
+  <div className="mx-auto max-w-5xl px-6 text-center">
 
-      <section className="mt-32 border-t border-slate-800 pt-16 text-center">
-  <h2 className="mb-4 text-4xl font-bold">
-    The Universe Awaits
-  </h2>
+    <h2 className="mb-4 text-3xl font-bold">
+  Explore Beyond Earth
+</h2>
 
-  <p className="mx-auto max-w-2xl text-slate-400">
-    Built with NASA APIs, interactive 3D
-    visualizations, mission archives, and
-    real-time astronomical data to make
-    space exploration accessible to everyone.
-  </p>
+<p className="mx-auto max-w-3xl text-slate-400">
+  From the first steps on the Moon to the farthest reaches
+  of interstellar space, humanity's greatest discoveries
+  begin with curiosity. Explore missions, planets, rover
+  imagery, and the wonders of our universe.
+</p>
 
-  <p className="mt-12 text-sm text-slate-500">
-    Explore. Discover. Inspire.
-  </p>
+    {/* Tech Stack */}
+    <div className="mt-8 flex flex-wrap justify-center gap-3">
+      {[
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "NASA APIs",
+        "Mars Vista API",
+      ].map((tech) => (
+        <span
+          key={tech}
+          className="rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    {/* Highlights */}
+    <div className="mt-10 flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+      <span>🚀 Mission Archive</span>
+      <span>🪐 Solar System Explorer</span>
+      <span>🔴 Mars Rover Gallery</span>
+      <span>☄️ Asteroid Tracker</span>
+      <span>📸 APOD Integration</span>
+    </div>
+
+    <div className="my-10 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
+
+    <p className="text-sm text-slate-600">
+      Built to make space exploration more accessible,
+      educational, and engaging through modern web technologies.
+    </p>
+
+  </div>
 </section>
     </main>
   );

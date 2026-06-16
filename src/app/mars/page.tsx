@@ -177,6 +177,33 @@ export default async function MarsPage() {
 
       {/* GALLERY */}
       <MarsGallery />
+
+<section className="border-t border-slate-800 py-16">
+  <div className="mx-auto max-w-5xl text-center">
+
+    <h2 className="mb-4 text-3xl font-bold">
+      Humanity's Next Frontier
+    </h2>
+
+    <p className="mx-auto max-w-2xl text-slate-400">
+      Mars remains one of the most promising destinations
+      for future exploration. Every image returned by these
+      rovers helps scientists understand whether life once
+      existed on the Red Planet.
+    </p>
+
+    <div className="my-10 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
+
+    <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+      <span>🔴 4 Active & Historic Rovers</span>
+      <span>🚁 First Aircraft on Another World</span>
+      <span>🧪 Search for Ancient Life</span>
+      <span>🚀 Future Human Missions</span>
+    </div>
+
+  </div>
+</section>
+
     </main>
   );
 }

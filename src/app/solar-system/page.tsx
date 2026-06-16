@@ -216,35 +216,103 @@ export default function SolarSystemPage() {
 </section>
 
       {/* Dwarf Planets */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <h2 className="mb-8 text-center text-4xl font-bold">
-          Dwarf Planets
-        </h2>
+      <section className="mx-auto max-w-7xl px-6 py-24">
+  <h2 className="mb-4 text-center text-5xl font-bold">
+    Dwarf Planets
+  </h2>
 
-        <div className="grid gap-6 md:grid-cols-5">
-          {[
-            "Pluto",
-            "Ceres",
-            "Eris",
-            "Haumea",
-            "Makemake",
-          ].map((planet) => (
-            <div
-              key={planet}
-              className="rounded-2xl border border-slate-800 bg-slate-900/50 p-5 text-center"
-            >
-              <h3 className="text-xl font-semibold">
-                {planet}
-              </h3>
-            </div>
-          ))}
+  <p className="mx-auto mb-12 max-w-3xl text-center text-slate-400">
+    Beyond Neptune lie fascinating worlds that don't
+    quite qualify as major planets, yet remain among
+    the most intriguing objects in our Solar System.
+  </p>
+
+  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+
+    {[
+      {
+        name: "Pluto",
+        image: "/dwarf-planets/pluto.jpg",
+        desc: "The most famous dwarf planet."
+      },
+      {
+        name: "Ceres",
+        image: "/dwarf-planets/ceres.jpg",
+        desc: "Largest object in the asteroid belt."
+      },
+      {
+        name: "Eris",
+        image: "/dwarf-planets/eris.jpg",
+        desc: "One of the most massive dwarf planets."
+      },
+      {
+        name: "Haumea",
+        image: "/dwarf-planets/huamea.jpg",
+        desc: "Rapidly rotating football-shaped world."
+      },
+      {
+        name: "Makemake",
+        image: "/dwarf-planets/makemake.jpg",
+        desc: "An icy object beyond Pluto."
+      },
+    ].map((planet) => (
+      <div
+        key={planet.name}
+        className="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/50 transition hover:border-blue-500"
+      >
+        <img
+          src={planet.image}
+          alt={planet.name}
+          className="h-48 w-full object-cover"
+        />
+
+        <div className="p-5">
+          <h3 className="mb-2 text-xl font-bold">
+            {planet.name}
+          </h3>
+
+          <p className="text-sm text-slate-400">
+            {planet.desc}
+          </p>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
+
 
       {/* Footer */}
-      <section className="border-t border-slate-800 py-12 text-center text-slate-400">
-        Journey Through Space • NASA Dashboard Project
-      </section>
+      {/* Footer */}
+<section className="border-t border-slate-800 py-16">
+  <div className="mx-auto max-w-5xl text-center">
+
+    <h2 className="mb-4 text-3xl font-bold">
+      Exploring the Cosmos
+    </h2>
+
+    <p className="mx-auto max-w-2xl text-slate-400">
+      From the scorching surface of Mercury to the icy
+      reaches of Neptune, every world in our Solar System
+      tells a unique story about the origins and future
+      of our cosmic neighborhood.
+    </p>
+
+    <div className="my-10 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
+
+    <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+      <span>🪐 8 Planets</span>
+      <span>☄️ Millions of Asteroids</span>
+      <span>🌕 290+ Known Moons</span>
+      <span>☀️ One Star</span>
+    </div>
+
+    <p className="mt-10 text-sm text-slate-600">
+      Powered by NASA Open APIs • Built with Next.js & Three.js
+    </p>
+
+  </div>
+</section>
     </main>
     </>
   );
