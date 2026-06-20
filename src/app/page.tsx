@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SolarSystemHero from "../components/SolarSystemHero";
 import { getApod } from "@/lib/nasa";
 import CosmosGallery from "@/components/CosmosGallery";
@@ -34,45 +35,83 @@ const features = [
 ];
 
 <div className="mx-auto mt-16 max-w-5xl">
-  <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+  <div className="relative z-10 mx-auto mt-16 max-w-5xl">
+  <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
 
-    <div>
+    <div className="
+      rounded-2xl
+      border border-slate-800
+      bg-slate-900/40
+      p-6
+      backdrop-blur
+      transition
+      hover:border-cyan-500/50
+    ">
       <p className="text-4xl font-bold text-cyan-400">
         15+
       </p>
-      <p className="mt-2 text-slate-400">
+
+      <p className="mt-2 text-sm text-slate-400">
         NASA Missions
       </p>
     </div>
 
-    <div>
+    <div className="
+      rounded-2xl
+      border border-slate-800
+      bg-slate-900/40
+      p-6
+      backdrop-blur
+      transition
+      hover:border-cyan-500/50
+    ">
       <p className="text-4xl font-bold text-cyan-400">
         8
       </p>
-      <p className="mt-2 text-slate-400">
+
+      <p className="mt-2 text-sm text-slate-400">
         Planets
       </p>
     </div>
 
-    <div>
+    <div className="
+      rounded-2xl
+      border border-slate-800
+      bg-slate-900/40
+      p-6
+      backdrop-blur
+      transition
+      hover:border-cyan-500/50
+    ">
       <p className="text-4xl font-bold text-cyan-400">
         1000+
       </p>
-      <p className="mt-2 text-slate-400">
+
+      <p className="mt-2 text-sm text-slate-400">
         NASA Images
       </p>
     </div>
 
-    <div>
+    <div className="
+      rounded-2xl
+      border border-slate-800
+      bg-slate-900/40
+      p-6
+      backdrop-blur
+      transition
+      hover:border-cyan-500/50
+    ">
       <p className="text-4xl font-bold text-cyan-400">
         Live
       </p>
-      <p className="mt-2 text-slate-400">
+
+      <p className="mt-2 text-sm text-slate-400">
         NASA Data
       </p>
     </div>
 
   </div>
+</div>
 </div>
 
 
@@ -82,119 +121,215 @@ export default async function Home() {
     <main className="mx-auto max-w-7xl px-6 py-16">
       {/* HERO */}
       <div className="absolute left-1/2 top-0 h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
-<section className="relative mb-24 overflow-hidden text-center">
+<section
+  className="
+    relative
+    mb-32
+    min-h-[85vh]
+    overflow-hidden
+    rounded-[40px]
+  "
+>
+  {/* Background Image */}
+  <Image
+    src="/hero/hero.jpg"
+    alt="Earth"
+    fill
+    priority
+    className="object-cover"
+  />
 
-  {/* Glow */}
-  <div className="absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/10" />
 
-  
+  {/* Gradient Overlay */}
+  <div
+    className="
+      absolute inset-0
+      bg-gradient-to-r
+      from-black/70
+      via-black/50
+      to-black/20
+    "
+  />
 
-  <h1 className="relative z-10 mb-6 text-7xl font-black tracking-tight md:text-8xl">
-    Explore the Universe
-  </h1>
+{/* Content */}
+<div className="relative z-10 min-h-[85vh]">
 
-  <p className="relative z-10 mx-auto max-w-3xl text-xl leading-relaxed text-slate-400">
-    Discover the cosmos through real NASA data,
-    interactive visualizations, rover imagery,
-    historic missions, asteroid tracking, and
-    planetary exploration.
-  </p>
+  {/* LEFT SIDE */}
+  <div className="max-w-3xl px-10 pt-24 md:px-16">
 
-  {/* Buttons */}
-  <div className="relative z-10 mt-12 flex flex-wrap justify-center gap-5">
+    {/* Heading */}
+    <h1 className="text-4xl font-black leading-tight md:text-5xl xl:text-6xl">
+  Discover
+  <br />
+  The Cosmos
 
-    <Link
-      href="/missions"
-      className="
-        group
-        rounded-xl
-        bg-gradient-to-r
-        from-cyan-500
-        to-blue-600
-        px-8
-        py-4
-        font-semibold
-        text-white
-        shadow-lg
-        shadow-cyan-500/20
-        transition-all
-        duration-300
-        hover:scale-105
-      "
-    >
-      Explore Missions
-      <span className="ml-2 transition group-hover:translate-x-1 inline-block">
-        →
-      </span>
-    </Link>
+  <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+    Through
+    <br />
+    Real NASA Data
+  </span>
+</h1>
 
-    <Link
-      href="/mars"
-      className="
-        rounded-xl
-        border
-        border-slate-700
-        bg-slate-900/50
-        px-8
-        py-4
-        font-semibold
-        backdrop-blur
-        transition-all
-        duration-300
-        hover:border-cyan-500
-        hover:bg-slate-900
-      "
-    >
-      Explore Mars
-    </Link>
-
+    {/* Description */}
+    <p className="mt-8 max-w-2xl text-xl leading-relaxed text-slate-300">
+      Explore planets, missions, asteroid tracking,
+      rover imagery, and astronomical discoveries
+      through interactive visualizations powered
+      by NASA's open data.
+    </p>
   </div>
 
 
-  {/* Stats */}
-  <div className="relative z-10 mx-auto mt-16 max-w-5xl">
-    <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
 
-      <div>
-        <p className="text-4xl font-bold text-cyan-400">
-          15+
-        </p>
-        <p className="mt-2 text-slate-400">
-          NASA Missions
-        </p>
-      </div>
+  {/* BOTTOM RIGHT PANEL */}
+  <div
+    className="
+  absolute
+  bottom-12
+  right-12
+  z-20
+  flex
+  flex-col
+  items-end
+"
+  >
+    {/* Buttons */}
+    <div className="flex gap-4">
+      <Link
+        href="/missions"
+        className="
+          group
+          rounded-xl
+          bg-gradient-to-r
+          from-cyan-500
+          to-blue-600
+          px-8
+          py-4
+          font-semibold
+          text-white
+          shadow-lg
+          shadow-cyan-500/20
+          transition-all
+          duration-300
+          hover:scale-105
+        "
+      >
+        Explore Missions
 
-      <div>
-        <p className="text-4xl font-bold text-cyan-400">
-          8
-        </p>
-        <p className="mt-2 text-slate-400">
-          Planets
-        </p>
-      </div>
+        <span className="ml-2 inline-block transition group-hover:translate-x-1">
+          →
+        </span>
+      </Link>
 
-      <div>
-        <p className="text-4xl font-bold text-cyan-400">
-          1000+
-        </p>
-        <p className="mt-2 text-slate-400">
-          NASA Images
-        </p>
-      </div>
+      <Link
+        href="/mars"
+        className="
+          rounded-xl
+          border
+          border-white/20
+          bg-white/10
+          px-8
+          py-4
+          font-semibold
+          text-white
+          backdrop-blur
+          transition-all
+          duration-300
+          hover:bg-white/20
+          hover:border-orange-500
+          hover:shadow-lg
+          hover:shadow-orange-500/20
+        "
+      >
+        Explore Mars
+      </Link>
+    </div>
 
-      <div>
-        <p className="text-4xl font-bold text-cyan-400">
-          Live
-        </p>
-        <p className="mt-2 text-slate-400">
-          NASA Data
-        </p>
-      </div>
+    {/* Mission Card */}
+    <div
+      className="
+        mt-6
+        w-[380px]
+        rounded-2xl
+        border border-white/10
+        bg-black/30
+        p-6
+        backdrop-blur-xl
+      "
+    >
+      <p className="text-xs font-semibold tracking-[0.25em] text-cyan-400">
+        FEATURED MISSION
+      </p>
 
+      <h3 className="mt-3 text-2xl font-bold">
+        Artemis II
+      </h3>
+
+      <p className="mt-3 text-slate-300">
+        NASA's first crewed Artemis mission,
+        paving the way for humanity's return
+        to the Moon and future deep-space exploration.
+      </p>
     </div>
   </div>
+</div>
 
+
+  {/* Bottom Fade */}
+  <div
+    className="
+      absolute
+      bottom-0
+      left-0
+      right-0
+      h-40
+      bg-gradient-to-t
+      from-slate-950
+      to-transparent
+    "
+  />
 </section>
+
+{/* Stats Section */}
+<div className="mb-24 grid gap-4 md:grid-cols-4">
+  <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 backdrop-blur">
+    <p className="text-lg font-bold text-cyan-400">
+      Astronomy Picture
+    </p>
+    <p className="mt-2 text-sm text-slate-400">
+      Updated Daily
+    </p>
+  </div>
+
+  <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 backdrop-blur">
+    <p className="text-lg font-bold text-cyan-400">
+      Mars Rover Photos
+    </p>
+    <p className="mt-2 text-sm text-slate-400">
+      Live Archive
+    </p>
+  </div>
+
+  <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 backdrop-blur">
+    <p className="text-lg font-bold text-cyan-400">
+      Near-Earth Objects
+    </p>
+    <p className="mt-2 text-sm text-slate-400">
+      Tracked Daily
+    </p>
+  </div>
+
+  <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 backdrop-blur">
+    <p className="text-lg font-bold text-cyan-400">
+      15+ Missions
+    </p>
+    <p className="mt-2 text-sm text-slate-400">
+      Historic & Active
+    </p>
+  </div>
+</div>
 
 <CosmosGallery />
 

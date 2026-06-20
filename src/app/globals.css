@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
+  --background: #0b0431;
   --foreground: #f8fafc;
 }
 
@@ -27,7 +27,7 @@ body {
   background:
     radial-gradient(
       circle at top,
-      rgba(37, 99, 235, 0.18),
+      rgba(16, 6, 73, 0.18),
       transparent 35%
     ),
     linear-gradient(
@@ -81,21 +81,21 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #040b29;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3a8a;
+  background: #08163a;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: #031f5e;
 }
 
 /* Text Selection */
 
 ::selection {
-  background: #2563eb;
+  background: #1b53cc;
   color: white;
 }
