@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import SolarSystemHero from "../../components/SolarSystemHero";
 import { planets } from "@/data/planets";
 import StarBackground from "@/components/StarBackground";
-
 export default function SolarSystemPage() {
   const [selectedPlanet, setSelectedPlanet] =
     useState(planets[2]);
@@ -70,6 +69,7 @@ export default function SolarSystemPage() {
           </p>
         </div>
       </section>
+
 
       {/* Planet Explorer */}
       <section className="mx-auto max-w-7xl px-4 py-20">
