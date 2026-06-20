@@ -1,5 +1,5 @@
 "use client";
-
+import SolarSystemWonders from "@/components/SolarSystemWonders";
 import { useRef, useState } from "react";
 import SolarSystemHero from "../../components/SolarSystemHero";
 import { planets } from "@/data/planets";
@@ -280,9 +280,8 @@ export default function SolarSystemPage() {
   </div>
 </section>
 
+<SolarSystemWonders />
 
-
-      {/* Footer */}
       {/* Footer */}
 <section className="border-t border-slate-800 py-16">
   <div className="mx-auto max-w-5xl text-center">
