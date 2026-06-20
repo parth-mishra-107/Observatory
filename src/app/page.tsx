@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SolarSystemHero from "../components/SolarSystemHero";
 import { getApod } from "@/lib/nasa";
-
+import CosmosGallery from "@/components/CosmosGallery";
 const features = [
   {
     title: "NASA's Missons",
@@ -74,6 +74,7 @@ const features = [
 
   </div>
 </div>
+
 
 export default async function Home() {
   const apod = await getApod();
@@ -149,6 +150,7 @@ export default async function Home() {
 
   </div>
 
+
   {/* Stats */}
   <div className="relative z-10 mx-auto mt-16 max-w-5xl">
     <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
@@ -193,6 +195,8 @@ export default async function Home() {
   </div>
 
 </section>
+
+<CosmosGallery />
 
       {/* APOD PREVIEW */}
       <section className="mb-24">
