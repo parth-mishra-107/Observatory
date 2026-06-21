@@ -4,7 +4,7 @@ A space exploration website built using NASA APIs and Next.js.
 
 The goal of this project was to create a single platform where users can explore different aspects of space, from NASA's Astronomy Picture of the Day to Mars rover images, asteroids, and information about the Solar System.
 
-## Live Demo
+## Visit the live project
 
 (https://observatory-by-parth-mishra.vercel.app/)
 
@@ -12,6 +12,7 @@ The goal of this project was to create a single platform where users can explore
 
 * Astronomy Picture of the Day (APOD)
 * Mars Rover Photo Explorer
+* NASA media search 
 * Near-Earth Asteroid Tracker
 * Solar System Explorer
 * NASA Mission Archive
