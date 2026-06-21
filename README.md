@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Observatory 🚀
+
+A space exploration website built using NASA APIs and Next.js.
+
+The goal of this project was to create a single platform where users can explore different aspects of space, from NASA's Astronomy Picture of the Day to Mars rover images, asteroids, and information about the Solar System.
+
+## Live Demo
+
+(https://observatory-by-parth-mishra.vercel.app/)
+
+## Features
+
+* Astronomy Picture of the Day (APOD)
+* Mars Rover Photo Explorer
+* Near-Earth Asteroid Tracker
+* Solar System Explorer
+* NASA Mission Archive
+* Responsive design for desktop 
+
+## Built With
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* NASA Open APIs
+* Vista MARS API
+* React Three Fiber
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
+
+```bash
+git clone https://github.com/parth-mishra-107/Observatory.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env.local` file:
+
+```env
+NASA_API_KEY=YOUR_API_KEY
+MARS_VISTA_API_KEY=YOUR_MARS_VISTA_API_KEY
+
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## APIs Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* NASA APOD API
+* NASA Mars Rover Photos API
+* NASA Near Earth Object API
+* Vista Mars API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## What I Learned
 
-## Learn More
+This project helped me learn:
 
-To learn more about Next.js, take a look at the following resources:
+* Working with external APIs
+* Building applications with Next.js
+* Managing async data fetching
+* Creating responsive user interfaces
+* Deploying applications with Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Future Improvements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* ISS live tracking
+* More interactive 3D visualizations
+* Search and filtering
+* Making the web mobile responsive
+* Additional NASA datasets
 
-## Deploy on Vercel
+## Parth Mishra, a BTech Electronic and Computer Engineering student interested in web development, space technology, and software engineering.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Feel free to explore the project or connect with me on GitHub:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub: https://github.com/parth-mishra-107
